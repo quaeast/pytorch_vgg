@@ -1,5 +1,8 @@
 import numpy as np
 
-a = np.ones(shape=[10])
-a[:] = 2
-print(a)
+a = np.ones(shape=[25, 25, 25])
+a = a.mean(axis=2, keepdims=True)
+
+
+
+print(a.shape)

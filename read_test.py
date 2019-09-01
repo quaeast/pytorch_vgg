@@ -1,6 +1,4 @@
 import numpy as np
-import torch
-import torchvision
 
 
 def read_img_package():

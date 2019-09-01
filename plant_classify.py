@@ -7,6 +7,7 @@ import config
 
 def get_vgg16out15():
     my_vgg = torchvision.models.vgg16()
+    my_vgg.load_state_dict(torch.load(r'param/vgg16-397923af.pth'))
     my_vgg.classifier[6] = torch.nn.Linear(in_features=4096, out_features=15, bias=True)
     return my_vgg
 
@@ -31,7 +32,6 @@ def get_data_loader(my_data_set):
 
 
 if __name__ == "__main__":
-    data_set_ = get_data()
-
-
+    # data_set_ = get_data()
     # print(get_vgg16out15())
+    get_vgg16out15()
