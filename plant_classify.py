@@ -5,10 +5,14 @@ import numpy as np
 import config
 
 
-def get_vgg16out15():
+def get_vgg16out15(pre=False):
     my_vgg = torchvision.models.vgg16()
-    my_vgg.load_state_dict(torch.load(r'param/vgg16-397923af.pth'))
-    my_vgg.classifier[6] = torch.nn.Linear(in_features=4096, out_features=15, bias=True)
+    if not pre:
+        my_vgg.load_state_dict(torch.load(r'param/vgg16-397923af.pth'))
+        my_vgg.classifier[6] = torch.nn.Linear(in_features=4096, out_features=15, bias=True)
+    else:
+        my_vgg.classifier[6] = torch.nn.Linear(in_features=4096, out_features=15, bias=True)
+        my_vgg.load_state_dict(torch.load(r'param/my_vgg_out_15_step_50.pth'))
     return my_vgg
 
 
@@ -34,4 +38,4 @@ def get_data_loader(my_data_set):
 if __name__ == "__main__":
     # data_set_ = get_data()
     # print(get_vgg16out15())
-    get_vgg16out15()
+    get_vgg16out15(True)

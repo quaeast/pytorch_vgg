@@ -1,3 +1,3 @@
-BATCH_SIZE = 1
+BATCH_SIZE = 5
 EPOCH = 1
 LR = 0.01
