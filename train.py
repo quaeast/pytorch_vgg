@@ -17,8 +17,8 @@ for e in range(config.EPOCH):
         optimizer.zero_grad()
         output = my_vgg(batch_x)
         print('>---------------------------------------------')
-        print(output.type())
-        print(batch_y.type())
+        # print(output.type())
+        # print(batch_y.type())
         loss = loss_func(output, batch_y.long())
         loss.backward()
         optimizer.step()
@@ -27,7 +27,7 @@ for e in range(config.EPOCH):
             ' | loss:', loss.item()
               )
         loss_list.append(loss.item())
-        if step == 100:
+        if step == 400:
             break
 
 print(loss_list)
