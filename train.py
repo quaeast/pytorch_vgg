@@ -4,11 +4,11 @@ import config
 import numpy as np
 torch.manual_seed(1)
 
-my_vgg = plant_classify.get_vgg16out15()
+my_vgg = plant_classify.get_vgg16out15().cuda()
 loss_func = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(my_vgg.parameters(), lr=config.LR)
 
-loader = plant_classify.get_data_loader(plant_classify.get_data())
+loader = plant_classify.get_data_loader(plant_classify.get_data_cuda())
 
 loss_list = []
 
