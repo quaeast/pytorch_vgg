@@ -8,10 +8,10 @@ import config
 END = 19
 
 # vgg
-# trained_my_vgg = plant_classify.get_vgg16out15(pre=True).cuda()
+trained_model = plant_classify.get_vgg16out15(pre=True).cuda()
 
 # dens
-trained_model = plant_classify.get_densenet(pre=True).cuda()
+# trained_model = plant_classify.get_densenet(pre=True).cuda()
 
 loader = plant_classify.get_data_loader(plant_classify.get_data_cuda())
 
